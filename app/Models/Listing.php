@@ -9,14 +9,25 @@ class Listing extends Model
 {
     use HasFactory;
 
-    public static function find($id)
-    {
-        $listings = self::all();
+    // public static function find($id)
+    // {
+    //     $listings = self::all();
 
-        foreach ($listings as $listing) {
-            if ($listing['id'] == $id) {
-                return $listing;
-            }
+    //     foreach ($listings as $listing) {
+    //         if ($listing['id'] == $id) {
+    //             return $listing;
+    //         }
+    //     }
+    // }
+
+
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['tag'] ?? false) {
+            // Null Coalescing Operator
+            // this $filters['tag'] not false than do this
+            // dd($filters['tag']);
+            $query->where('tags', 'like', '%' . request('tag') . '%');
         }
     }
 }
