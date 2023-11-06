@@ -1,6 +1,5 @@
-@extends('layout')
+<x-layout>
 
-@section('content')
     @include('partials._search')
 
 
@@ -42,4 +41,5 @@
             </div>
         </x-card>
     </div>
-@endsection
+
+</x-layout>
