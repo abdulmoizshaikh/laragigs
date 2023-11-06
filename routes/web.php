@@ -42,6 +42,17 @@ use Illuminate\Support\Facades\Route;
 //     return $request->name . ' ' . $request->city;
 // });
 
+
+// Common Resource Routes:
+// index - Show all listings
+// show - Show single listing
+// create - Show form to create new listing
+// store - Store new listing
+// edit - Show form to edit listing
+// update - Update listing
+// destroy - Delete listing
+
+
 // All Listings
 Route::get('/', [ListingController::class, 'index']);
 
