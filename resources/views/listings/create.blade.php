@@ -7,7 +7,7 @@
             <p class="mb-4">Post a gig to find a developer</p>
         </header>
 
-        <form method="POST" action="/listings">
+        <form method="POST" action="/listings" enctype="multipart/form-data">
             {{-- // @csrf prevent cross site scripting attacts in POST request forms in laravel --}}
             @csrf
 
@@ -100,6 +100,11 @@
                 </label>
                 <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo" />
 
+                @error('logo')
+                    <p class="text-red-500 text-xs mt-1">
+                        {{ $message }}
+                    </p>
+                @enderror
             </div>
 
             <div class="mb-6">

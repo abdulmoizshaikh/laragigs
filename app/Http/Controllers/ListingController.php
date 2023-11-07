@@ -36,6 +36,7 @@ class ListingController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->file('logo'));
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
@@ -45,6 +46,16 @@ class ListingController extends Controller
             "tags" => 'required',
             "description" => 'required',
         ]);
+
+        if ($request->hasFile('logo')) {
+
+            // we can set it to the path and upload at the same time using below code
+            // here logos is folder name where to store file
+            $formFields['logo'] = $request->file('logo')->store(
+                'logos',
+                'public'
+            );
+        }
 
         Listing::create($formFields);
 
