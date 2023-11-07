@@ -9,6 +9,8 @@ class Listing extends Model
 {
     use HasFactory;
 
+    // protected $fillable = ['title', 'company', 'location', 'website', 'email', 'description', 'tags'];
+
     // public static function find($id)
     // {
     //     $listings = self::all();
