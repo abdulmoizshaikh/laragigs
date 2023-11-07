@@ -14,7 +14,7 @@ class ListingController extends Controller
         // dd(request());
         return view('listings.index', [
             // 'listings' => Listing::all()
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6) //here 6 is per page records count
             // get() // it will render latest record first on the list (DESC order)
         ]);
     }
