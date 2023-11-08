@@ -40,4 +40,11 @@ class Listing extends Model
                 ->orWhere('tags', 'like', '%' . request('search') . '%');
         }
     }
+
+    // Relationship to User
+    public function user()
+    {
+        // all this is doing its doing listing this model belongs to this User
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
